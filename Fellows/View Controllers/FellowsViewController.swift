@@ -23,7 +23,7 @@ class FellowsViewController: UIViewController {
         fellowView.tableView.delegate = self
         
         if let results = JSONParsingService.parseJSONFile(filename: "Fellows", type: "json") {
-            fellowArr = results
+            fellowArr = results.sorted{ $0.name < $1.name}
         }
         
         navigationItem.title = "Fellows"
