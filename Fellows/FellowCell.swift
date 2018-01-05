@@ -45,6 +45,7 @@ class FellowCell: UITableViewCell {
     override func layoutSubviews() {
         //we get the frame of the UI elements here
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2.0 //making round
+        profileImageView.layer.masksToBounds = true
     }
 
     private func setUpViews() {
@@ -58,6 +59,7 @@ class FellowCell: UITableViewCell {
         profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         profileImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.80).isActive = true
+        profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
         
     }
     

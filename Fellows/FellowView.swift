@@ -14,7 +14,7 @@ class FellowView: UIView {
     lazy var tableView: UITableView = {
         let tv = UITableView()
         //SETTING UP CELL
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "FellowCell")
+        tv.register(FellowCell.self, forCellReuseIdentifier: "FellowCell")
         tv.backgroundColor = .orange
         return tv
     }()

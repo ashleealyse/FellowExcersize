@@ -29,24 +29,26 @@ class FellowsViewController: UIViewController {
 
 //Table View Data Source Extension
 extension FellowsViewController: UITableViewDataSource {
-    
+
     //Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+
     //Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FellowCell", for: indexPath) as! FellowCell
 
-        
+
         // TODO: we will be passing a Fellow Object here
         cell.configureCell()
         return cell
     }
-    
-    
+
+
 }
+
+
 
 //Table View Delegate Extension
 extension FellowsViewController: UITableViewDelegate {
