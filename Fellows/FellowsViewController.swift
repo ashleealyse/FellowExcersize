@@ -37,8 +37,11 @@ extension FellowsViewController: UITableViewDataSource {
     
     //Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FellowCell", for: indexPath)
-        cell.textLabel?.text = "It Worked!!"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FellowCell", for: indexPath) as! FellowCell
+
+        
+        // TODO: we will be passing a Fellow Object here
+        cell.configureCell()
         return cell
     }
     
