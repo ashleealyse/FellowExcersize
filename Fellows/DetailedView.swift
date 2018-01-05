@@ -44,6 +44,16 @@ class DetailedView: UIView {
         return imageView
     }()
     
+    lazy var bioTextView: UITextView = {
+        let tv = UITextView()
+        tv.backgroundColor = UIColor.init(red: 0.961, green: 0.961, blue: 0.961, alpha: 1)
+        tv.isEditable = false
+        tv.isSelectable = false
+        tv.layer.cornerRadius = 20
+        tv.layer.masksToBounds = true
+        return tv
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -72,6 +82,8 @@ class DetailedView: UIView {
         setupDismissButton()
         setUpNameLabel()
         setUpProfileImage()
+        setUpBioTextView()
+        
     }
     
     private func setupBlurEffectView() {
@@ -112,6 +124,7 @@ class DetailedView: UIView {
     public func configureDetailedView(fellow: Fellow, image: UIImage){
         nameLabel.text = fellow.name
         profileImage.image = image
+        bioTextView.text = fellow.bio ?? "Bio not yet set up..."
     }
     
     private func setUpProfileImage() {
@@ -124,5 +137,12 @@ class DetailedView: UIView {
     
     }
     
-    
+    private func setUpBioTextView(){
+        addSubview(bioTextView)
+        bioTextView.translatesAutoresizingMaskIntoConstraints = false
+        bioTextView.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 16).isActive = true
+        bioTextView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16).isActive = true
+        bioTextView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16).isActive = true
+        bioTextView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16).isActive = true
+    }
 }
