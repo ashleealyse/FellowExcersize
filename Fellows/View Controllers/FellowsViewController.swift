@@ -60,11 +60,12 @@ extension FellowsViewController: UITableViewDataSource {
 extension FellowsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Set up push
-        //Create a detailed VC
-        //Push image & label
-        //It is in a NVC so there will be a back button
-        //Text view will have description
+        // TODO: Use dependency injection to pass Fellow Model Objext to detailedVC
+        
+        let detailedViewController = DetailedViewController()
+        detailedViewController.modalTransitionStyle = .crossDissolve
+        detailedViewController.modalPresentationStyle = .overCurrentContext
+        present(detailedViewController, animated: true, completion: nil)
     }
     
     //Setting cell height
