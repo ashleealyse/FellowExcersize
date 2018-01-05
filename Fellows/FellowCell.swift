@@ -30,6 +30,7 @@ class FellowCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "FellowCell")
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,6 +61,7 @@ class FellowCell: UITableViewCell {
         profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         profileImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.80).isActive = true
         profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
+        profileImageView.backgroundColor = .green
         
     }
     
