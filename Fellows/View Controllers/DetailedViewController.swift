@@ -21,6 +21,7 @@ class DetailedViewController: UIViewController {
         
         //setup dismiss button
         detailedView.dismissViewButton.addTarget(self, action: #selector(dimissView), for: .touchUpInside)
+        detailedView.dismissButton.addTarget(self, action: #selector(dimissView), for: .touchUpInside)
     }
 
     @objc func dimissView() {
