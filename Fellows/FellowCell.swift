@@ -72,8 +72,8 @@ class FellowCell: UITableViewCell {
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
-    public func configureCell(){
-        nameLabel.text = "Ashlee"
+    public func configureCell(fellow: Fellow){
+        nameLabel.text =  fellow.name
         
     }
 }

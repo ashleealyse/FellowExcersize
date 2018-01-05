@@ -12,6 +12,7 @@ class FellowsViewController: UIViewController {
     
     let fellowView = FellowView()
     
+    var fellowArr = [Fellow]()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
@@ -20,6 +21,10 @@ class FellowsViewController: UIViewController {
         //Set up delegate and data source
         fellowView.tableView.dataSource = self
         fellowView.tableView.delegate = self
+        
+        if let results = JSONParsingService.parseJSONFile(filename: "Fellows", type: "json") {
+            fellowArr = results
+        }
         
         navigationItem.title = "Fellows"
     }
@@ -32,16 +37,17 @@ extension FellowsViewController: UITableViewDataSource {
 
     //Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return fellowArr.count
     }
 
     //Cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FellowCell", for: indexPath) as! FellowCell
 
-
+        let aFellow = fellowArr[indexPath.row]
+        cell.configureCell(fellow: aFellow)
+        
         // TODO: we will be passing a Fellow Object here
-        cell.configureCell()
         return cell
     }
 
