@@ -19,8 +19,13 @@ class DetailedViewController: UIViewController {
         view.backgroundColor = .clear
         view.addSubview(detailedView)
         
+        //setup dismiss button
+        detailedView.dismissViewButton.addTarget(self, action: #selector(dimissView), for: .touchUpInside)
     }
 
+    @objc func dimissView() {
+        dismiss(animated: true, completion: nil)
+    }
    
 
 }

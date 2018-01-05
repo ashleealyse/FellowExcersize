@@ -10,6 +10,13 @@ import UIKit
 
 class DetailedView: UIView {
     
+    lazy var dismissViewButton: UIButton = {
+        let button = UIButton(frame: UIScreen.main.bounds)
+        button.backgroundColor = .clear
+        
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -25,6 +32,7 @@ class DetailedView: UIView {
     }
     private func setUpViews() {
         setupBlurEffectView()
+        setUpDismissView()
     }
     
     private func setupBlurEffectView() {
@@ -32,6 +40,10 @@ class DetailedView: UIView {
         let visualEffect = UIVisualEffectView(frame: UIScreen.main.bounds) 
         visualEffect.effect = blurEffect
         addSubview(visualEffect)
+    }
+    
+    private func setUpDismissView(){
+        addSubview(dismissViewButton)
     }
     
 }
