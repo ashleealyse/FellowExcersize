@@ -23,8 +23,6 @@ class FellowCell: UITableViewCell {
         label.text = "Name"
         label.textAlignment = .center //centers label
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        label.backgroundColor = .green
-        imageView?.backgroundColor = .orange
         return label
     }()
     
@@ -46,7 +44,7 @@ class FellowCell: UITableViewCell {
     override func layoutSubviews() {
         //we get the frame of the UI elements here
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2.0 //making round
-        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.masksToBounds = true //doesnt allow bleeding out of bounds
     }
 
     private func setUpViews() {
@@ -61,7 +59,7 @@ class FellowCell: UITableViewCell {
         profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         profileImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.80).isActive = true
         profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
-        profileImageView.backgroundColor = .green
+
         
     }
     

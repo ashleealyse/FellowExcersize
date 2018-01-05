@@ -60,7 +60,11 @@ extension FellowsViewController: UITableViewDataSource {
 extension FellowsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        // TODO: Set up push
+        //Create a detailed VC
+        //Push image & label
+        //It is in a NVC so there will be a back button
+        //Text view will have description
     }
     
     //Setting cell height
