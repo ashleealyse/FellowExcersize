@@ -74,6 +74,22 @@ class FellowCell: UITableViewCell {
     
     public func configureCell(fellow: Fellow){
         nameLabel.text =  fellow.name
-        
+        if let imageURL = fellow.imageURL {
+            if let image = ImageCache.manager.cachedImage(url: imageURL) {
+                profileImageView.image = image
+            } else {
+                ImageCache.manager.processImageInBackground(imageURL: imageURL, completion: { (error, image) in
+                    if let error = error {
+                        print("Fellow Cell - error processing image: \(error.localizedDescription)")
+                    } else if let image = image {
+                        DispatchQueue.main.async {
+                            self.profileImageView.image = image
+                        }
+                    }
+                })
+            }
+        } else {
+            profileImageView.image = #imageLiteral(resourceName: "IMG_8344")
+        }
     }
 }
