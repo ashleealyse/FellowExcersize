@@ -119,8 +119,9 @@ class DetailedView: UIView {
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         profileImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         profileImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16).isActive = true
-        profileImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.50 )
+        profileImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.50 ).isActive = true
         profileImage.heightAnchor.constraint(equalTo: profileImage.widthAnchor).isActive = true
+    
     }
     
     
