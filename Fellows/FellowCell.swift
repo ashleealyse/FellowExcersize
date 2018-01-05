@@ -41,6 +41,21 @@ class FellowCell: UITableViewCell {
     }
 
     private func setUpViews() {
+        setUpProfileImage()
+        setUpNameLabel()
+    }
+    
+    private func setUpProfileImage(){
+        addSubview(profileImageView)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        profileImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.80).isActive = true
         
+    }
+    
+    private func setUpNameLabel() {
+        addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false 
     }
 }
