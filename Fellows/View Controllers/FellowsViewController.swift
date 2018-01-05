@@ -61,8 +61,16 @@ extension FellowsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: Use dependency injection to pass Fellow Model Objext to detailedVC
+        let fellow = fellowArr[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath) as! FellowCell
         
-        let detailedViewController = DetailedViewController()
+        var cellImage: UIImage!
+        if let image = cell.profileImageView.image {
+            cellImage = image
+        } else {
+            cellImage = #imageLiteral(resourceName: "placeholderimage")
+        }
+        let detailedViewController = DetailedViewController(fellow: fellow, image: cell.profileImageView.image!)
         detailedViewController.modalTransitionStyle = .crossDissolve
         detailedViewController.modalPresentationStyle = .overCurrentContext
         present(detailedViewController, animated: true, completion: nil)

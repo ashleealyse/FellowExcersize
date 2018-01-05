@@ -87,7 +87,7 @@ class FellowCell: UITableViewCell {
                 })
             }
         } else {
-            profileImageView.image = #imageLiteral(resourceName: "IMG_8344")
+            profileImageView.image = #imageLiteral(resourceName: "placeholderimage")
         }
     }
 }

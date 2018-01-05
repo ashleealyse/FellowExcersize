@@ -32,6 +32,18 @@ class DetailedView: UIView {
         return button
     }()
     
+    lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var profileImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -45,11 +57,21 @@ class DetailedView: UIView {
         backgroundColor = .clear
         setUpViews()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileImage.layer.cornerRadius = profileImage.bounds.width / 2.0
+        profileImage.layer.masksToBounds = true
+            
+    }
+    
     private func setUpViews() {
         setupBlurEffectView()
         setUpDismissView()
         setUpContainerView()
         setupDismissButton()
+        setUpNameLabel()
+        setUpProfileImage()
     }
     
     private func setupBlurEffectView() {
@@ -79,5 +101,27 @@ class DetailedView: UIView {
         dismissButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16).isActive = true
         dismissButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16).isActive = true
     }
+    
+    private func setUpNameLabel() {
+        addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: dismissButton.bottomAnchor).isActive = true
+    }
+    
+    public func configureDetailedView(fellow: Fellow, image: UIImage){
+        nameLabel.text = fellow.name
+        profileImage.image = image
+    }
+    
+    private func setUpProfileImage() {
+        addSubview(profileImage)
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        profileImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 16).isActive = true
+        profileImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.50 )
+        profileImage.heightAnchor.constraint(equalTo: profileImage.widthAnchor).isActive = true
+    }
+    
     
 }
